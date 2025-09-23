@@ -9,8 +9,8 @@ radius = 34.0147
 [node name="Projectile" instance=ExtResource("1_5t2ss")]
 damage = 1
 pierce = 10
-stun_lock = 0.5
-knockback = 4
+stun_lock = 0.75
+knockback = 6
 sound = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="0"]
