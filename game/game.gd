@@ -9,7 +9,7 @@ signal game_end
 signal damage_taken(remaining_health: int)
 
 var available_rooms: Array[Room] = []
-var purchased_rooms: Array[Room] = []
+var purchased_rooms: Array[Tower.RoomInstance] = []
 
 var bg_water_levels = [
 	0.2,
@@ -216,7 +216,7 @@ func fire_projectile_above_enemy(_room: Tower.RoomInstance, projectile: Node2D, 
 	projectile.visible = true
 	projectile.global_position = target.global_position + Vector2(0, -50)
 
-func room_selected(room: Room) -> void:
+func room_selected(room: Tower.RoomInstance) -> void:
 	rooms_built += 1
 	purchased_rooms.append(room)
 
@@ -255,7 +255,7 @@ func _on_rooms_sell(room: int, value: int) -> void:
 	purchased_rooms.remove_at(room)
 	rooms_sold += 1
 
-func _on_tower_removal_service(room: Room) -> void:
+func _on_tower_removal_service(room: Tower.RoomInstance) -> void:
 	purchased_rooms.append(room)
 
 func enemy_taken_damage(amount: int) -> void:
